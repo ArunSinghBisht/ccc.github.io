@@ -83,12 +83,13 @@
 		}
 		.reset{
 			height: 10%; width: 18%;
-			right: 15%; top: 50%;
+			right: 15%; top: 45%;
 			position: absolute;
 			line-height: 145%;
 			text-align: center;
+			color: red;
 			font-size: 135%;
-			background-color: grey;
+			background-color: black;
 			border: 1px solid #000;
 		}
 		.coin{
@@ -108,7 +109,7 @@
 		}
 		.pass{
 			height: 10% ; width: 18%;
-			right: 15%; top: 65%;
+			right: 15%; top: 80%;
 			position: absolute;
 			line-height: 145%;
 			text-align: center;
