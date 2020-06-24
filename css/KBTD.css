@@ -81,6 +81,16 @@
 			background-color: #E17046;
 			border: 1px solid #000;
 		}
+		.reset{
+			height: 10%; width: 18%;
+			right: 15%; top: 50%;
+			position: absolute;
+			line-height: 145%;
+			text-align: center;
+			font-size: 135%;
+			background-color: grey;
+			border: 1px solid #000;
+		}
 		.coin{
 			height: 50%; width: 28.2%;
 			border-radius: 50%;
