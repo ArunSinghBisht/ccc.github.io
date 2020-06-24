@@ -1,0 +1,60 @@
+*{
+			margin: 0px;
+			padding: 0px;
+		}
+		
+		.heading{
+			top: 0%; left: 0%;
+			height: 20%; width: 99.85%;
+			background-color: #2f3640;
+			background-size: 70% 70%;
+			background-image: url('../images/head.png');
+			background-position: 70%;
+			background-repeat: no-repeat;
+			position: absolute;
+			border: 1px solid black;
+		}
+		.logo{
+			height: 80% ; width: 7.1% ;
+			top: 10%; left: 7%;
+			position: absolute;
+			background-image: url('../images/logo.png');
+			background-size: cover;
+		}
+		.content{
+			top: 20%; left: 0%;
+			height: 80%; width: 100%;
+			position: absolute;
+			color: white;
+			line-height: 200%;
+			font-size: 150%;
+			text-align: center;
+			background-color: #192a56; 
+		}
+		.gamebar{
+			top: 20%; left: 5%;
+			height: 70%; width: 90%;
+			position: absolute;
+			overflow: scroll;
+			overflow-x: hidden;
+			border: 1px solid black;
+		}
+		.game{
+			top: 8%; left: 5%;
+			height: 40%; width: 20%;
+			position: absolute;
+			border: 1px solid black;
+		}
+		#game1{
+			background-image: url('../images/icons/KBTD.png');
+			background-position: center;
+			background-size: 100% 100%;
+		}
+		.dis{
+			top: 5%; left: 30%;
+			height: 50%; width: 65%;
+			position: absolute;
+			overflow: hidden;
+			overflow-wrap: break-word;
+			
+		}

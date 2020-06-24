@@ -1,0 +1,138 @@
+        *{
+			margin: 0%;
+			padding: 0%;
+		}
+		.hide{
+			display: none;
+		}
+		.startScreen{
+			left: 0%; top: 0%;
+			height: 100%;
+			width :100%;
+			position: absolute;
+			background-image: url('../images/KBTD/rules.png');
+			background-size: 100% 100%;
+		}
+		.door{
+			width: 9.5%; height: 18%;
+			position: absolute;
+		    background-color: #3E2723;
+		    text-align: center;
+		    line-height: 200%;
+			font-size: 150%;
+			font-family: fantasy;
+			color: gold;
+			background-size: cover;
+			background-position: center;
+		}
+		.board{
+			height: 92%; width: 62%;
+			top: 0%; left : 0%;
+			position: absolute;
+			background-color: #BDBDBD;
+			border: 1px solid #000;
+		}
+		.events{
+			height: 58%; width: 35%;
+			right: 0%; bottom: 0%;
+			position: absolute;
+			overflow: scroll;
+			display: flex;
+            flex-direction: column-reverse;
+			color: black;
+			font-size: 100%;
+			border: 1px solid #000;
+		}
+		.red{
+			color: red;
+			padding-top: 2%;
+			padding-left: 1%;
+		}
+		.green{
+			color: green;
+			padding-top: 2%;
+			padding-left: 1%;
+		}
+		.black{
+			color: black;
+			padding-top: 2%;
+			padding-left: 1%;
+		}
+		.Bar{
+			height: 100%; width: 2.8%;
+			top: 0%; right: 35%;
+			position: absolute;
+			text-align: center;
+			writing-mode: vertical-lr;	 
+			font-family: inherit;
+			font-weight: bold;
+			font-size: 225%;
+			color: white;
+			text-decoration: underline overline;
+			letter-spacing:3px;
+			word-spacing: 30px;
+			background-color:green;
+			border: 1px solid #000;
+		}
+		.luck{
+			height: 42%; width: 35%;
+			right: 0%; top: 0%;
+			position: absolute;
+			background-color: #E17046;
+			border: 1px solid #000;
+		}
+		.coin{
+			height: 50%; width: 28.2%;
+			border-radius: 50%;
+			top: 45%; left: 20%;
+			text-align: center;
+			line-height: 750%;
+			font-family: inherit;
+			font-size: 125%;
+			position: absolute;
+			background-color: gold;
+			background-size: 70% 70%;
+			background-position: center;
+			background-repeat: no-repeat;
+			border: 1px solid #000;
+		}
+		.pass{
+			height: 10% ; width: 18%;
+			right: 15%; top: 65%;
+			position: absolute;
+			line-height: 145%;
+			text-align: center;
+			font-size: 135%;
+			background-color: grey;
+			border: 1px solid #000;
+		}
+		.curTurn{
+			height: 25%; width: 50%;
+			top: 10%; left: 25%;
+			position: absolute;
+			text-align: center; color: white;
+			line-height: 150%;
+			font-size: 250%;
+			text-decoration: underline overline;
+		}
+		.GC{
+			height: 8%; width: 62%;
+			left: 0%; bottom: 0%;
+			background-color: #2ecc71;
+			position: absolute;
+			border: 1px solid #000;
+		}
+		.M{
+			height: 60%; width: 25%;
+			bottom: 20%;
+			border: 1px solid #000;
+			position: absolute;
+			background-color: yellow;
+			text-align: center;
+			line-height: 135%;
+			font-size: 1.5em;
+			font-family: inherit;
+		}
+		.gameArea{
+			background-size: 100% 100%;		
+		}
