@@ -1,4 +1,4 @@
-const startScreen = document.querySelector('.startScreen');
+        const startScreen = document.querySelector('.startScreen');
 		const gameArea = document.querySelector('.gameArea');
 		const board = document.querySelector('.board');
 		const events = document.querySelector('.events');
@@ -13,6 +13,7 @@ const startScreen = document.querySelector('.startScreen');
 		let m = 15;  //no. of money card
 		let player = {mode : "none", turn : 0};
 		let money = [100,100];  //player money
+		let gOver=0;
 
 		for(i=0; i<5; i++){
 			givev(i)
@@ -134,7 +135,7 @@ const startScreen = document.querySelector('.startScreen');
 		    	}
 		    	refmoney();
 		    	disClick();
-		    	pass.setAttribute('onclick','passturn()');
+		    	if(gOver==0) pass.setAttribute('onclick','passturn()');
 		    	checkboard();
 		    }
 		}
@@ -316,13 +317,13 @@ const startScreen = document.querySelector('.startScreen');
 			    alert("GAME OVER.\n"+s+" won.");
 			    addEvent(s+" Won.","red")
 			}
-			
+			gOver=1;
 			pass.removeAttribute("onclick");
 		}
 
 	    function start(){
 	    	for(x=0;x<2;x++){
-			    name[x]=prompt("enter player "+(x+1)+" name",name[x]);
+			    name[x]=prompt("Enter player "+(x+1)+" name",name[x]);
 		    }
 		    startScreen.classList.add('hide');
 		    gameArea.classList.remove('hide');
