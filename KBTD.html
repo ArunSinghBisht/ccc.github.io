@@ -5,7 +5,10 @@
 	<link rel="stylesheet" type="text/css" href="css/KBTD.css">
 </head>
 <body>
-	<div class="startScreen"></div>
+	<div class="startScreen">
+		<div class="vsAI hide" onclick="loadS(1)">Vs AI</div>
+		<div class="vsplayeroff hide" onclick="loadS(2)">Vs Yourself</div>
+	</div>
 	<div class="gameArea hide"> 
 	    <div class="board"></div>
 	    <div class="events"></div>
@@ -14,7 +17,23 @@
 	    </div>
 	    <div class="Bar">Kingdom Behind The Doors</div>
 	</div>
-	<script src="scripts/KBTD.js"></script>
+	<script>
+		const vsAI = document.querySelector('.vsAI');
+		const vsplayeroff = document.querySelector('.vsplayeroff');
+
+		alert("Welcome to Kingdom Behind The Doors.\nRead the rules then click on the desired mode to start.");
+		vsAI.classList.remove('hide');
+		vsplayeroff.classList.remove('hide');
+		var S = document.createElement('script');
+		
+
+		function loadS(a){
+			
+			if(a==1) S.src = "scripts/KBTDvC.js";
+			else if(a==2) S.src = "scripts/KBTD.js";
+		}
+		document.body.appendChild(S);
+	</script>
 
 </body>
 </html>

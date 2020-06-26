@@ -4,7 +4,7 @@
 		const events = document.querySelector('.events');
 		const luck = document.querySelector('.luck');
 		
-		let name = ["player 1","player 2"];
+		let name = ["player 1","AI name"];
 		let guardm = [100,100,100];  //money with guard
 		let room = new Array(20);  //value to be given in door divs
 		let D = new Array(20);  //door divs
@@ -90,7 +90,7 @@
 		}
 
 		function flip(){
-			if(player.mode=="none"){
+			
 				let s;
 				let r=Math.floor(Math.random()*10);
 				if(r<=2){
@@ -105,7 +105,7 @@
 				}
 				console.log(name[player.turn]+" will play as "+s);
 				addEvent(name[player.turn]+" will play as "+s,"green");
-			}
+			coin.removeAttribute('onclick');
 		}
 
 	    function openRoom(p){
@@ -133,7 +133,7 @@
 		    	}
 		    	refmoney();
 		    	disClick();
-		    	if(gOver==0) pass.setAttribute('onclick','passturn()');
+		    	if(gOver==0)  pass.setAttribute('onclick','passturn()');
 		    	checkboard();
 		    }
 		}
@@ -258,10 +258,20 @@
 			if(player.turn==0){player.turn=1;}
 			else if(player.turn==1){player.turn=0;}
 			curTurn.innerText= name[player.turn]+"'s Turn";
-			enClick();
+			if(player.turn==0) enClick();
 			pass.removeAttribute("onclick");
 			console.log(name[player.turn]+"'s turn.");
 			addEvent(name[player.turn]+"'s turn.","red");
+			coin.setAttribute('onclick','flip()');
+			if(player.turn==1) compTurn();
+		}
+
+		function compTurn(){
+			coin.removeAttribute('onclick');
+			coin.style.backgroundImage = "url('images/KBTD/wait.png')";
+			setTimeout(flip,1500);
+			setTimeout('openRoom(pick())',2500);
+			setTimeout(passturn,4000);
 		}
 
 		function disClick(){
@@ -287,6 +297,15 @@
 			let T = document.createTextNode(s);
 			Para.appendChild(T);
 			ChatBox.appendChild(Para);
+		}
+
+		function pick(){
+			var num = Math.floor(Math.random()*20);
+				if(parseInt(D[num].getAttribute("value"))!=5) {
+					console.log(num);
+					return num;
+				}
+				else {pick();}		
 		}
 
 		function gameOver(e){
@@ -321,7 +340,8 @@
 
 	    function start(){
 	    	for(x=0;x<2;x++){
-			    name[x]=prompt("Enter player "+(x+1)+" name",name[x]);
+			    if(x==0) name[x]=prompt("Enter player's name",name[x]);
+			    else name[x]=prompt("Enter AI's name",name[x]);
 		    }
 		    startScreen.classList.add('hide');
 		    gameArea.classList.remove('hide');
