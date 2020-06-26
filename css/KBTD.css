@@ -13,6 +13,22 @@
 			background-image: url('../images/KBTD/rules.png');
 			background-size: 100% 100%;
 		}
+		.vsAI{
+			right: 10%; top: 80%;
+			height: 5%; width: 10%;
+			position: absolute;
+			text-align: center;
+			line-height: 245%;
+			background-color: gray;
+		}
+		.vsplayeroff{
+			right: 10%; top: 90%;
+			height: 5%; width: 10%;
+			position: absolute;
+			text-align: center;
+			line-height: 245%;
+			background-color: gray;
+		}
 		.door{
 			width: 9.5%; height: 18%;
 			position: absolute;
