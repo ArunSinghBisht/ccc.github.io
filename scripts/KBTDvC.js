@@ -103,7 +103,7 @@
 					s="thief";
 					coin.style.backgroundImage = "url('images/KBTD/bag.png')";
 				}
-				console.log(name[player.turn]+" will play as "+s);
+				//console.log(name[player.turn]+" will play as "+s);
 				addEvent(name[player.turn]+" will play as "+s,"green");
 			coin.removeAttribute('onclick');
 		}
@@ -111,11 +111,12 @@
 	    function openRoom(p){
 
 	        if(player.mode=="none"){
-	        	console.log("First flip the coin.")
+	        	//console.log("First flip the coin.")
 	        	alert("First flip the coin.");
 	        }
+	        else if(p==undefined) openRoom(pick());
             else{
-
+            	//console.log(p);
                 if(D[p].getAttribute("value")==0){
 		    		king(p);
 		    	}
@@ -148,12 +149,12 @@
 				D[n].setAttribute("value","5");
 				D[n].style.backgroundImage = "url('images/KBTD/king.png')";
 				alert(name[player.turn]+" killed the king.\nAnd became the new king.");
-				console.log(name[player.turn]+" killed the king.And became the new king.");
+				//console.log(name[player.turn]+" killed the king.And became the new king.");
 				addEvent(name[player.turn]+" killed the king and became the new king.","red");
 				let rm=0;
 				for(x=0;x<m;x++){rm+=(2+Math.floor(Math.random()*9))*10;}
 				money[player.turn]+=rm;
-			    console.log(name[player.turn]+" got "+rm+" GC");
+			    //console.log(name[player.turn]+" got "+rm+" GC");
 			    addEvent(name[player.turn]+" got "+rm+" GC","black");
 			    gameOver(0);
 			}
@@ -161,8 +162,8 @@
 
 		function queen(n){
 			if(player.mode=="Bag"){
-				console.log("queen");
-				console.log(name[player.turn]+"'s money became 0");
+				//console.log("queen");
+				//console.log(name[player.turn]+"'s money became 0");
 				addEvent(name[player.turn]+" encountered queen.","red");
 				addEvent(name[player.turn]+"'s money became 0","black");
 				D[n].style.backgroundImage = "url('images/KBTD/queen.png')";
@@ -179,7 +180,7 @@
 
 		function guard(n){
 			if(player.mode=="Bag"){
-				console.log("guard");
+				//console.log("guard");
 				addEvent(name[player.turn]+" encountered a guard.","red");
 				if(money[player.turn]<20){
 					addEvent(name[player.turn]+" is to be executed for stealing form the castle.","red");
@@ -188,7 +189,7 @@
 				}
 				else{
 					let x = Math.floor(money[player.turn]/2);
-					console.log(name[player.turn]+" gave away "+x+" GC as bribe.");
+					//console.log(name[player.turn]+" gave away "+x+" GC as bribe.");
 					addEvent(name[player.turn]+" gave away "+x+" GC as bribe.","black");
 					guardm[parseInt(D[n].getAttribute("value"))-2]+=x;
 					money[player.turn]-=x;
@@ -199,7 +200,7 @@
 			else if(player.mode=="Dagger"){
 				let x = guardm[parseInt(D[n].getAttribute("value"))-2];
 				money[player.turn]+=x;
-				console.log(name[player.turn]+" killed the guard and got "+x+" GC.");
+				//console.log(name[player.turn]+" killed the guard and got "+x+" GC.");
 				addEvent(name[player.turn]+" killed the guard and got "+x+" GC.","black");
 				D[n].setAttribute("value","5");
 				D[n].style.backgroundColor="red";
@@ -211,7 +212,7 @@
 		function genmoney(n){
 			if(player.mode=="Bag"){
 				let rm = (2+Math.floor(Math.random()*9))*10;
-				console.log(rm);
+				//console.log(rm);
 				money[player.turn]+=rm;
 				addEvent(name[player.turn]+" got "+rm+" GC.","black");
 				D[n].innerText = rm+" GC";
@@ -223,7 +224,7 @@
 			}
 			else if(player.mode=="Dagger"){
 				let rm = (2+Math.floor(Math.random()*9))*10;
-				console.log(name[player.turn]+" accidentaly lost "+rm+" GC");
+				//console.log(name[player.turn]+" accidentaly lost "+rm+" GC");
 				addEvent(name[player.turn]+" accidentaly lost "+rm+" GC","black");
 				money[player.turn]-= rm;
 				swapRoom(n);
@@ -253,17 +254,20 @@
 		}
 
 		function passturn(){
-			player.mode="none";
-			coin.style.backgroundImage = "url('images/KBTD/FTC.png')";
-			if(player.turn==0){player.turn=1;}
-			else if(player.turn==1){player.turn=0;}
-			curTurn.innerText= name[player.turn]+"'s Turn";
-			if(player.turn==0) enClick();
-			pass.removeAttribute("onclick");
-			console.log(name[player.turn]+"'s turn.");
-			addEvent(name[player.turn]+"'s turn.","red");
-			coin.setAttribute('onclick','flip()');
-			if(player.turn==1) compTurn();
+			if(gOver==0){
+				player.mode="none";
+			    coin.style.backgroundImage = "url('images/KBTD/FTC.png')";
+			    if(player.turn==0){player.turn=1;}
+			    else if(player.turn==1){player.turn=0;}
+			    curTurn.innerText= name[player.turn]+"'s Turn";
+			    enClick();
+			    if(player.turn==1) disClick();
+			    pass.removeAttribute("onclick");
+			    //console.log(name[player.turn]+"'s turn.");
+			    addEvent(name[player.turn]+"'s turn.","red");
+			    coin.setAttribute('onclick','flip()');
+			    if(player.turn==1) compTurn();
+		    }
 		}
 
 		function compTurn(){
@@ -271,7 +275,7 @@
 			coin.style.backgroundImage = "url('images/KBTD/wait.png')";
 			setTimeout(flip,1500);
 			setTimeout('openRoom(pick())',2500);
-			setTimeout(passturn,4000);
+			setTimeout(passturn,4600);
 		}
 
 		function disClick(){
@@ -302,7 +306,7 @@
 		function pick(){
 			var num = Math.floor(Math.random()*20);
 				if(parseInt(D[num].getAttribute("value"))!=5) {
-					console.log(num);
+					//console.log(num);
 					return num;
 				}
 				else {pick();}		
@@ -345,7 +349,7 @@
 		    }
 		    startScreen.classList.add('hide');
 		    gameArea.classList.remove('hide');
-	    	console.log(name[player.turn]+"'s turn.");
+	    	//console.log(name[player.turn]+"'s turn.");
 	    	addEvent(name[player.turn]+"'s turn.","red");
 	    	curTurn.innerText= name[player.turn]+"'s Turn";
 	    	refmoney();
