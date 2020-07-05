@@ -7,15 +7,14 @@
 	background-color: #000;
 }
 #dooredgemain{
-	top: 30%; left: 40%;
-	height: 40%; width: 20%;
-	position: relative;
+	top: 5%; left: 40%;
+	height: 70.5%; width: 20%;
+	position: absolute;
 }
 #doormain{
-	top: 5%; right: 40%;
+	top: 10%; right: 40%;
 	height: 65.5%; width: 20%;
 	position: absolute;
-	
 	transform-origin: 90% ; 	
 }
 .open{
