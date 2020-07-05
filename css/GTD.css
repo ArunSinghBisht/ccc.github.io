@@ -1,0 +1,47 @@
+*{margin: 0%; padding: 0%;}
+
+.main{
+	top: 0%; left: 0%;
+	height: 100%; width: 100%;
+	position: absolute;
+	background-color: #000;
+}
+#dooredgemain{
+	top: 30%; left: 40%;
+	height: 40%; width: 20%;
+	position: relative;
+}
+#doormain{
+	top: 5%; right: 40%;
+	height: 65.5%; width: 20%;
+	position: absolute;
+	
+	transform-origin: 90% ; 	
+}
+.open{
+	animation: open 6s linear;
+	transform: perspective(1000px) rotateY(98deg);
+}
+@keyframes open{
+	0%{
+		transform: perspective(1000px) rotateY(0deg);
+	}
+	5%{
+		transform: perspective(1000px) rotateY(5deg);
+	}
+	30%{
+		transform: perspective(1000px) rotateY(40deg);
+	}
+	50%{
+		transform: perspective(1000px) rotateY(70deg);
+	}
+	75%{
+		transform: perspective(1000px) rotateY(90deg);
+	}
+	95%{
+		transform: perspective(1000px) rotateY(100deg);
+	}
+	100%{
+		transform: perspective(1000px) rotateY(98deg);
+	}
+}

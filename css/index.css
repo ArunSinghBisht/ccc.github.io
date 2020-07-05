@@ -39,22 +39,32 @@
 			overflow-x: hidden;
 			border: 1px solid black;
 		}
-		.game{
-			top: 8%; left: 5%;
+		.game{	
 			height: 40%; width: 20%;
 			position: absolute;
 			border: 1px solid black;
 		}
 		#game1{
+			top: 8%; left: 5%;
 			background-image: url('../images/icons/KBTD.png');
 			background-position: center;
 			background-size: 100% 100%;
 		}
+		#game2{
+			top: 66%; left: 5%;
+			background-image: url('../images/icons/GTD.png');
+			background-position: center;
+			background-size: 100% 100%;
+		}
 		.dis{
-			top: 5%; left: 30%;
 			height: 50%; width: 65%;
 			position: absolute;
 			overflow: hidden;
-			overflow-wrap: break-word;
-			
+			overflow-wrap: break-word;	
+		}
+		#dis1{
+			top: 5%; left: 30%;
+		}
+		#dis2{
+			top: 60%; left: 30%;
 		}
